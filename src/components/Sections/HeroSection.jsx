@@ -418,7 +418,12 @@ const HeroSection = () => {
           >
             <ArrowDown
               size={20}
-              className={isDarkMode ? 'text-gray-600' : 'text-gray-400'}
+              onClick={() => scrollToSection('skill')}
+              className={`cursor-pointer ${
+                isDarkMode
+                  ? 'text-gray-600 hover:text-white'
+                  : 'text-gray-400 hover:text-gray-700'
+              }`}
             />
           </motion.div>
         </div>

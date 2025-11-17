@@ -117,9 +117,11 @@ const SkillSection = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-medium mb-1">{category.title}</h3>
+                  <h3 className="text-xl font-medium mb-1 pl-2">
+                    {category.title}
+                  </h3>
                   <p
-                    className={`text-sm ${
+                    className={`text-sm pl-2 ${
                       isDarkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}
                   >

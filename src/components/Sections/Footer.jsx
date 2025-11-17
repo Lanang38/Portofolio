@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.documentElement.scrollIntoView({ behavior: 'smooth' });
   };
 
   // FIX: Return is required

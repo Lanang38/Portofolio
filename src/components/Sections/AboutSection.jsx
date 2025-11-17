@@ -45,6 +45,13 @@ const AboutSection = () => {
     },
   };
 
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -286,9 +293,10 @@ const AboutSection = () => {
               Ready to collaborate or have a chat?
             </p>
             <motion.button
+              onClick={() => scrollToSection('contact')}
               whileHover={{ y: -2, scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300 cursor-pointer"
             >
               Let's Connect!
             </motion.button>
