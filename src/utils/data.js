@@ -24,6 +24,10 @@ import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
 import PROJECT_IMG_1 from '../assets/image/project-1.png';
 import PROJECT_IMG_2 from '../assets/image/project-2.png';
+import PROJECT_IMG_3 from '../assets/image/project-3.png';
+import PROJECT_IMG_4 from '../assets/image/project-4.png';
+import PROJECT_IMG_5 from '../assets/image/project-5.png';
+import PROJECT_IMG_6 from '../assets/image/project-6.png';
 
 export const SKILLS_CATEGORY = [
   {
@@ -104,28 +108,80 @@ export const STATS = [
 export const PROJECTS = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'AI Interview Coach',
     description:
-      'A full-stack e-commerce solution with advanced filtering, payment integration, and real-time inventory tracking.',
+      'An AI-powered platform that helps users practice job interviews with real-time feedback, scoring, and personalized improvement suggestions.',
     image: PROJECT_IMG_1,
-    tags: ['React', 'Tailwind', 'Framer motion'],
+    tags: ['React', 'Tailwind', 'Framer Motion', 'OpenAI API'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/Lanang38/AI-Project',
+    featured: true,
+    category: 'AI Project',
+  },
+
+  {
+    id: 2,
+    title: 'GoSewa — Rental Service App',
+    description:
+      'A modern web application designed for renting vehicles and equipment, featuring a responsive UI, category filtering, and smooth animations.',
+    image: PROJECT_IMG_2,
+    tags: ['React', 'Tailwind', 'Framer Motion'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/Lanang38/Gosewa',
+    featured: false,
+    category: 'Frontend',
+  },
+
+  {
+    id: 3,
+    title: 'Futgro — Football Growth App',
+    description:
+      'A platform built to support football talent development with curated content, user tracking, and interactive educational features.',
+    image: PROJECT_IMG_3,
+    tags: ['React', 'Tailwind', 'Express.js', 'MySQL'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/Lanang38/IL-project',
     featured: false,
     category: 'Full Stack',
   },
 
   {
-    id: 2,
-    title: 'Blog App with AI Post Generator',
+    id: 4,
+    title: 'Fashion E-Commerce Website',
     description:
-      'A full-stack blog app using the MERN stack — with full Markdown support, tag filtering, and an integrated AI post generator.',
-    image: PROJECT_IMG_2,
-    tags: ['React', 'Node.js', 'MongoDB', 'Tailwind'],
-    liveUrl: 'https://youtu.be/tUnGudI8B0j',
-    githubUrl: '#',
-    featured: true,
+      'A stylish and responsive fashion website showcasing collections, product details, and a clean modern shopping experience.',
+    image: PROJECT_IMG_4,
+    tags: ['PHP', 'Boostrap', 'MySQL'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/Lanang38/fashion-full',
+    featured: false,
     category: 'Full Stack',
+  },
+
+  {
+    id: 5,
+    title: 'RFID Attendance System',
+    description:
+      'A real-time attendance system using RFID technology with admin dashboards, user logs, and live monitoring.',
+    image: PROJECT_IMG_5,
+    tags: ['PHP', 'MySQL', 'RFID', 'Bootstrap'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/Lanang38/absensi-esp',
+    featured: false,
+    category: 'IoT / System',
+  },
+
+  {
+    id: 6,
+    title: 'Warehouse Management System',
+    description:
+      'A desktop-based warehouse management system built using C#, featuring stock tracking, reporting, and CRUD operations.',
+    image: PROJECT_IMG_6,
+    tags: ['C#', '.NET', 'SQL Server'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/Lanang38/management-app',
+    featured: false,
+    category: 'Desktop App',
   },
 ];
 
