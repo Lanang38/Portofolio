@@ -30,7 +30,7 @@ const Footer = () => {
     return (
       <div className="absolute top-0 left-0 w-full h-px overflow-hidden">
         <motion.div
-          className={`h-px bg-gradient-to-r ${
+          className={`h-px bg-linear-to-r ${
             isDarkMode
               ? 'from-transparent via-blue-500 to-transparent'
               : 'from-transparent via-blue-600 to-transparent'
@@ -40,7 +40,7 @@ const Footer = () => {
           transition={{ duration: 1.5, ease: 'easeInOut' }}
         />
         <motion.div
-          className={`absolute top-0 h-px w-32 bg-gradient-to-r ${
+          className={`absolute top-0 h-px w-32 bg-linear-to-r ${
             isDarkMode
               ? 'from-blue-400 via-purple-500 to-blue-400'
               : 'from-blue-500 via-purple-600 to-blue-500'
