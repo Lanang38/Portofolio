@@ -316,12 +316,12 @@ const HeroSection = () => {
                 className="flex items-center gap-6"
               >
                 {[
-                  { icon: FiGithub, link: 'https://github.com/username' },
+                  { icon: FiGithub, link: 'https://github.com/Lanang38' },
                   {
                     icon: FiLinkedin,
-                    link: 'https://www.linkedin.com/in/username/',
+                    link: 'https://www.linkedin.com/in/cokorda-gde-lanang',
                   },
-                  { icon: Mail, link: 'mailto:email@gmail.com' },
+                  { icon: Mail, link: 'mailto:cokde38@gmail.com' },
                 ].map((item, i) => (
                   <motion.a
                     key={i}
