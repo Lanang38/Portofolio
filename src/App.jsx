@@ -5,6 +5,7 @@ import HeroSection from './components/Sections/HeroSection.jsx';
 import SkillSection from './components/Sections/SkillSection.jsx';
 import ProjectsSection from './components/Sections/ProjectsSection.jsx';
 import AboutSection from './components/Sections/AboutSection.jsx';
+import ContactSection from './components/Sections/ContactSection.jsx';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <SkillSection />
         <ProjectsSection />
         <AboutSection />
+        <ContactSection />
       </div>
     </ThemeProvider>
   );

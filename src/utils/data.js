@@ -16,7 +16,7 @@ import {
   Phone,
 } from 'lucide-react';
 
-import { FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
+import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
 import PROJECT_IMG_1 from '../assets/image/project-1.png';
 import PROJECT_IMG_2 from '../assets/image/project-2.png';
@@ -146,6 +146,20 @@ export const SOCIAL_LINKS = [
   {
     name: 'LinkedIn',
     icon: FiLinkedin,
+    url: 'https://linkedin.com',
+    color: 'hover:text-blue-400',
+    bgColor: 'hover:bg-blue-500/10',
+  },
+  {
+    name: 'Instagram',
+    icon: FiInstagram,
+    url: 'https://github.com',
+    color: 'hover:text-gray-400',
+    bgColor: 'hover:bg-gray-800',
+  },
+  {
+    name: 'Mail',
+    icon: Mail,
     url: 'https://linkedin.com',
     color: 'hover:text-blue-400',
     bgColor: 'hover:bg-blue-500/10',
