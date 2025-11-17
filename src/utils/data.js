@@ -98,6 +98,43 @@ export const PROJECTS = [
   },
 ];
 
+export const JOURNEY_STEPS = [
+  {
+    year: "2021",
+    title: "Started Coding Journey",
+    company: "Self-taught",
+    description: "Began learning web development with HTML, CSS, and JavaScript. Built my first",
+    icon: Code2,
+    color: "bg-blue-500",
+  },
+  {
+    year: "2022",
+    title: "First Internship",
+    company: "TechStart Inc.",
+    description: "Joined as a frontend intern, working with React and learning modern developme",
+    icon: Briefcase,
+    color: "bg-green-500",
+  }
+];
+
+export const PASSIONS = [
+  {
+    icon: Heart,
+    title: 'User Experience',
+    description: 'Crafting intuitive interfaces that users love',
+  },
+  {
+    icon: Coffee,
+    title: 'Problem Solving',
+    description: 'Turning complex challenges into elegant solutions',
+  },
+  {
+    icon: BookOpen,
+    title: 'Continuous Learning',
+    description: 'Always exploring new technologies and best practices',
+  },
+];
+
 export const SOCIAL_LINKS = [
   {
     name: 'GitHub',

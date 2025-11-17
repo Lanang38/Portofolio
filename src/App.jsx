@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/Sections/HeroSection.jsx';
 import SkillSection from './components/Sections/SkillSection.jsx';
 import ProjectsSection from './components/Sections/ProjectsSection.jsx';
+import AboutSection from './components/Sections/AboutSection.jsx';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <HeroSection />
         <SkillSection />
         <ProjectsSection />
+        <AboutSection />
       </div>
     </ThemeProvider>
   );
