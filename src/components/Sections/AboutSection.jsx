@@ -8,7 +8,6 @@ import SIGNATURE from '../../assets/Image/Signature.svg';
 import { containerVariants, itemVariants } from '../../utils/helper';
 
 const AboutSection = () => {
-  // Fix: useTheme aman
   const { isDarkMode = false } = useTheme() || {};
 
   const sectionRef = useRef(null);
