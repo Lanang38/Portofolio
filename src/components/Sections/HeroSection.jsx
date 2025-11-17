@@ -61,9 +61,7 @@ const HeroSection = () => {
         style={{ y: heroY }}
         className="min-h-screen flex items-center justify-center relative px-6 pt-10"
       >
-        {/* ====================
-            BACKGROUND BLOBS
-        ===================== */}
+        {/* BACKGROUND BLOBS */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             animate={{ scale: [1, 1.1, 1], rotate: [0, 100, 300] }}
@@ -85,7 +83,7 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto w-full z-10 mt-20">
           {/* ===========================
               📱 MOBILE VERSION
-          ============================ */}
+          ============================= */}
           <div className="block lg:hidden">
             {/* PROFILE IMAGE MOBILE */}
             <motion.div
@@ -98,7 +96,6 @@ const HeroSection = () => {
                 variants={imageVariants}
                 className="w-40 h-40 mx-auto relative flex items-center justify-center"
               >
-                {/* MOBILE GLOW RING */}
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{
@@ -106,14 +103,13 @@ const HeroSection = () => {
                     repeat: Infinity,
                     ease: 'linear',
                   }}
-                  className={`absolute w-[115%] h-[115%] rounded-3xl border-2 
-                    ${
-                      isDarkMode
-                        ? 'border-blue-500/40 shadow-[0_0_25px_rgba(59,130,246,0.5)]'
-                        : 'border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.6)]'
-                    }
-                  `}
-                  style={{ filter: 'blur(1px)' }}
+                  className={`absolute w-[125%] h-[125%]
+                    rounded-3xl
+                    ring-[3px]
+                    ${isDarkMode ? 'ring-blue-500/25' : 'ring-blue-400/30'}
+                    blur-[3px]
+                    opacity-90
+                    `}
                 />
 
                 <motion.div
@@ -249,7 +245,7 @@ const HeroSection = () => {
 
           {/* ===========================
               💻 DESKTOP VERSION
-          ============================ */}
+          ============================= */}
           <div className="hidden lg:flex items-center justify-between gap-10 px-4">
             {/* LEFT TEXT BLOCK */}
             <motion.div
@@ -345,9 +341,7 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* =====================
-                 DESKTOP IMAGE
-            ====================== */}
+            {/* RIGHT IMAGE BLOCK */}
             <motion.div
               initial="hidden"
               animate="visible"
@@ -374,15 +368,37 @@ const HeroSection = () => {
                 )}
               </div>
 
-              {/* DESKTOP IMAGE CARD + STRONGER RING */}
+              {/* === NEW: ROTATING RING (DESKTOP) === */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 12,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                className={`
+                  absolute w-[420px] h-[520px]
+                  rounded-3xl
+                  ring-4
+                  ${isDarkMode ? 'ring-blue-500/25' : 'ring-blue-400/30'}
+                  blur-[3px]
+                  opacity-90
+                  `}
+                style={{ zIndex: 0 }}
+              />
+
+              {/* IMAGE CARD */}
               <div
-                className={`w-[360px] h-[460px] rounded-3xl overflow-hidden relative border-2
-                  ${isDarkMode ? 'border-blue-500/40' : 'border-blue-500/50'}
-                `}
+                className={`
+                  w-[360px] h-[460px] rounded-3xl overflow-hidden
+                  shadow-2xl border relative backdrop-blur-lg
+                  ${isDarkMode ? 'border-gray-800' : 'border-gray-200'}
+                  `}
                 style={{
                   boxShadow: isDarkMode
-                    ? '0 0 35px rgba(59,130,246,0.45)'
-                    : '0 0 45px rgba(59,130,246,0.55)',
+                    ? '0 0 50px rgba(59,130,246,0.15)'
+                    : '0 0 50px rgba(59,130,246,0.25)',
+                  zIndex: 1,
                 }}
               >
                 <img

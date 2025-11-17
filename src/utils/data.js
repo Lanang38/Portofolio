@@ -18,15 +18,22 @@ import {
 
 import { FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
-import PROJECT_IMG_1 from '../assets/images/project-1.png';
-import PROJECT_IMG_2 from '../assets/images/project-2.png';
-import PROJECT_IMG_3 from '../assets/images/project-3.png';
-import PROJECT_IMG_4 from '../assets/images/project-4.png';
-import PROJECT_IMG_5 from '../assets/images/project-5.png';
-import PROJECT_IMG_6 from '../assets/images/project-6.png';
-import PROJECT_IMG_7 from '../assets/images/project-7.png';
+import PROJECT_IMG_1 from '../assets/image/project-1.png';
+import PROJECT_IMG_2 from '../assets/image/project-2.png';
 
 export const SKILLS_CATEGORY = [
+  {
+    title: 'Frontend',
+    icon: Code2,
+    description: 'Crafting beautiful, responsive user interfaces',
+    skills: [
+      { name: 'React', level: 95, color: 'bg-blue-500' },
+      { name: 'TypeScript', level: 90, color: 'bg-blue-600' },
+      { name: 'Next.js', level: 88, color: 'bg-gray-800' },
+      { name: 'Tailwind CSS', level: 92, color: 'bg-cyan-500' },
+      { name: 'Framer Motion', level: 85, color: 'bg-pink-500' },
+    ],
+  },
   {
     title: 'Frontend',
     icon: Code2,
@@ -88,5 +95,40 @@ export const PROJECTS = [
     githubUrl: '#',
     featured: true,
     category: 'Full Stack',
+  },
+];
+
+export const SOCIAL_LINKS = [
+  {
+    name: 'GitHub',
+    icon: FiGithub,
+    url: 'https://github.com',
+    color: 'hover:text-gray-400',
+    bgColor: 'hover:bg-gray-800',
+  },
+  {
+    name: 'LinkedIn',
+    icon: FiLinkedin,
+    url: 'https://linkedin.com',
+    color: 'hover:text-blue-400',
+    bgColor: 'hover:bg-blue-500/10',
+  },
+];
+
+export const CONTACT_INFO = [
+  {
+    icon: MapPin,
+    label: 'Location',
+    value: 'San Francisco, CA',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'alex@timetoprogram.com',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+1 (555) 123-4567',
   },
 ];
