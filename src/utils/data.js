@@ -134,9 +134,9 @@ export const PROJECTS = [
 
   {
     id: 3,
-    title: 'Futgro — Football Growth App',
+    title: 'Futgro — Agricultural Learning App',
     description:
-      'A platform built to support football talent development with curated content, user tracking, and interactive educational features.',
+      'A learning platform designed to support farmers with curated agricultural content, interactive modules, and progress tracking features to enhance productivity and knowledge.',
     image: PROJECT_IMG_3,
     tags: ['React', 'Tailwind', 'Express.js', 'MySQL'],
     liveUrl: '#',
