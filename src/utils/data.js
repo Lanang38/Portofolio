@@ -22,12 +22,12 @@ import {
 
 import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
-import PROJECT_IMG_1 from '../assets/image/project-1.png';
-import PROJECT_IMG_2 from '../assets/image/project-2.png';
-import PROJECT_IMG_3 from '../assets/image/project-3.png';
-import PROJECT_IMG_4 from '../assets/image/project-4.png';
-import PROJECT_IMG_5 from '../assets/image/project-5.png';
-import PROJECT_IMG_6 from '../assets/image/project-6.png';
+import PROJECT_IMG_1 from '../assets/Image/project-1.png';
+import PROJECT_IMG_2 from '../assets/Image/project-2.png';
+import PROJECT_IMG_3 from '../assets/Image/project-3.png';
+import PROJECT_IMG_4 from '../assets/Image/project-4.png';
+import PROJECT_IMG_5 from '../assets/Image/project-5.png';
+import PROJECT_IMG_6 from '../assets/Image/project-6.png';
 
 export const SKILLS_CATEGORY = [
   {
