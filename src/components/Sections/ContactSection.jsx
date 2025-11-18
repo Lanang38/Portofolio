@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 import { useTheme } from '../../context/ThemeContext';
 import TextInput from '../Input/TextInput';
@@ -21,6 +22,7 @@ const ContactSection = () => {
   const [showSuccess, setShowSuccess] = useState(false);
 
   const sectionRef = useRef(null);
+  const formRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   const { scrollYProgress } = useScroll({
@@ -34,19 +36,35 @@ const ContactSection = () => {
     setFormData({ ...formData, [key]: value });
   };
 
-  // SUBMIT FUNCTION FIXED
+  // ==========================
+  //         HANDLE SUBMIT
+  // ==========================
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setShowSuccess(true);
+      setFormData({ name: '', email: '', message: '' });
+
+      setTimeout(() => setShowSuccess(false), 3000);
+    } catch (error) {
+      alert('Failed to send message. Check console.');
+      console.error(error);
+    }
 
     setIsSubmitting(false);
-    setShowSuccess(true);
-
-    setFormData({ name: '', email: '', message: '' });
-
-    setTimeout(() => setShowSuccess(false), 3000);
   };
 
   return (
@@ -57,7 +75,7 @@ const ContactSection = () => {
         isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
       } relative overflow-hidden`}
     >
-      {/* Background Animation */}
+      {/* BG ANIMATION */}
       <motion.div style={{ y }} className="absolute inset-0 overflow-hidden">
         <div
           className={`absolute top-20 left-1/4 w-72 h-72 rounded-full blur-3xl opacity-5 ${
@@ -72,7 +90,7 @@ const ContactSection = () => {
       </motion.div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header */}
+        {/* HEADER */}
         <motion.div
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
@@ -105,9 +123,9 @@ const ContactSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* FORM + CONTACT */}
+        {/* FORM + INFO */}
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* LEFT FORM */}
+          {/* FORM LEFT */}
           <motion.div
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
@@ -123,7 +141,7 @@ const ContactSection = () => {
             >
               <h3 className="text-2xl font-medium mb-8">Send me a message</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 {/* Name + Email */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <TextInput
@@ -145,7 +163,7 @@ const ContactSection = () => {
                   />
                 </div>
 
-                {/* Message */}
+                {/* MESSAGE */}
                 <TextInput
                   isDarkMode={isDarkMode}
                   value={formData.message}
@@ -156,15 +174,13 @@ const ContactSection = () => {
                   textarea
                 />
 
-                {/* Submit Button */}
+                {/* BUTTON */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-blue-400 
-                  text-white py-4 rounded-xl text-sm uppercase tracking-wider 
-                  font-medium transition-all duration-300 flex items-center justify-center space-x-2"
+                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-blue-400 text-white py-4 rounded-xl text-sm uppercase tracking-wider font-medium transition-all duration-300 flex items-center justify-center space-x-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -188,7 +204,8 @@ const ContactSection = () => {
                 </motion.button>
               </form>
             </motion.div>
-            {/* Available Status */}
+
+            {/* Availability */}
             <motion.div
               variants={itemVariants}
               className={`mt-10 p-6 rounded-xl border ${
@@ -203,7 +220,6 @@ const ContactSection = () => {
                   Available for Work
                 </span>
               </div>
-
               <p
                 className={`text-sm ${
                   isDarkMode ? 'text-gray-400' : 'text-gray-600'
@@ -222,7 +238,7 @@ const ContactSection = () => {
             variants={containerVariants}
             className="space-y-8"
           >
-            {/* Contact Information */}
+            {/* Contact Info */}
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl font-medium mb-6">Contact Information</h3>
 
@@ -254,7 +270,6 @@ const ContactSection = () => {
                       >
                         {info.label}
                       </div>
-
                       <div className="font-medium">{info.value}</div>
                     </div>
                   </motion.div>
@@ -262,7 +277,7 @@ const ContactSection = () => {
               </div>
             </motion.div>
 
-            {/* Social Media */}
+            {/* Social */}
             <motion.div variants={itemVariants}>
               <h3 className="text-xl font-medium mb-6">Follow Me</h3>
 
@@ -272,7 +287,6 @@ const ContactSection = () => {
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className={`flex items-center space-x-3 p-4 rounded-xl border transition-all duration-300 ${
@@ -289,6 +303,7 @@ const ContactSection = () => {
             </motion.div>
           </motion.div>
         </div>
+
         {/* CTA */}
         <motion.div
           initial="hidden"
@@ -305,10 +320,15 @@ const ContactSection = () => {
             }`}
           >
             <h3 className="text-xl font-medium mb-4">Prefer a quick call?</h3>
-            <p className={`mb-10 ${isDarkMode ? 'text-gray-400' : 'text-gray-400'}`}>
-              Sometimes a conversation is work a thousand messages. Feel free to
-              schedule a call to discuss your project
+            <p
+              className={`mb-10 ${
+                isDarkMode ? 'text-gray-400' : 'text-gray-400'
+              }`}
+            >
+              Sometimes a conversation is worth a thousand messages. Feel free
+              to schedule a call!
             </p>
+
             <motion.button
               whileHover={{ y: -2, scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -318,13 +338,12 @@ const ContactSection = () => {
                   : 'border-gray-300 hover:border-blue-500 hover:text-blue-600'
               }`}
             >
-                Scedule a Call
+              Schedule a Call
             </motion.button>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* SUCCESS MODAL */}
       <SuccessModel
         showSuccess={showSuccess}
         setShowSuccess={setShowSuccess}
